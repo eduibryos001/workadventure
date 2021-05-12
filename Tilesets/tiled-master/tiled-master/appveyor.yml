@@ -1,0 +1,128 @@
+clone_depth: 200
+version: '1.6.{build}'
+image:
+  - Visual Studio 2015
+  - Visual Studio 2019
+
+cache:
+  - C:\Users\appveyor\.m2
+  - C:\ProgramData\chocolatey\bin -> appveyor.yml
+  - C:\ProgramData\chocolatey\lib -> appveyor.yml
+
+environment:
+  BUTLER_API_KEY:
+    secure: j7JM5L6KeqpnQukzJLsm7J6oV92SpmyEZLSoED1pZ3gQ79VIkdxtbQmTkqUNZPsz
+  matrix:
+    - QTDIR: C:\Qt\5.12\msvc2017_64
+      PYTHONHOME: C:\Python37-x64
+      DEFAULT_PROFILE: MSVC2019-x64
+      PUSH_RELEASE: false
+      ENABLE_ZSTD: false
+    - QTDIR: C:\Qt\5.6.3\mingw49_32
+      PYTHONHOME: C:\Python37
+      MINGW: C:\Qt\Tools\mingw492_32
+      DEFAULT_PROFILE: i686-w64-mingw32-gcc-4_9_2
+      PUSH_RELEASE: false
+      PUSH_SNAPSHOT: true
+      ENABLE_ZSTD: true
+      TILED_ITCH_CHANNEL: winxp-32bit
+    - QTDIR: C:\Qt\5.15\mingw81_64
+      PYTHONHOME: C:\Python37-x64
+      MINGW: C:\Qt\Tools\mingw810_64
+      DEFAULT_PROFILE: x86_64-w64-mingw32-gcc-8_1_0
+      PUSH_RELEASE: true
+      ENABLE_ZSTD: true
+      TILED_ITCH_CHANNEL: windows-64bit
+
+matrix:
+  exclude:
+    - image: Visual Studio 2015
+      QTDIR: C:\Qt\5.12\msvc2017_64
+    - image: Visual Studio 2015
+      QTDIR: C:\Qt\5.15\mingw81_64
+    - image: Visual Studio 2019
+      QTDIR: C:\Qt\5.6.3\mingw49_32
+
+configuration: Release
+
+install:
+  - choco install -y qbs --version 1.17.0
+  - nuget install secure-file -ExcludeVersion
+  - set PATH=%PATH%;%QTDIR%\bin;%MINGW%\bin
+
+build_script:
+  - FOR /F "tokens=*" %%i in ('git describe') do SET COMMITNOW=%%i
+  - if defined APPVEYOR_REPO_TAG_NAME (set TILED_RELEASE=true) else (set TILED_SNAPSHOT=true)
+  - if defined TILED_RELEASE set TILED_VERSION=%APPVEYOR_REPO_TAG_NAME:~1%
+  - if defined TILED_SNAPSHOT set TILED_VERSION=%DATE:~10,4%.%DATE:~4,2%.%DATE:~7,2%
+  - if defined TILED_SNAPSHOT set TILED_MSI_VERSION=%APPVEYOR_BUILD_VERSION%
+  - if defined TILED_SNAPSHOT set TILED_ITCH_CHANNEL=%TILED_ITCH_CHANNEL%-snapshot
+  - if not defined APPVEYOR_PULL_REQUEST_NUMBER if [%APPVEYOR_REPO_BRANCH%]==[snapshot] if defined PUSH_SNAPSHOT set PUSH_TO_ITCH=true
+  - echo Building Tiled %TILED_VERSION% (%TILED_ITCH_CHANNEL%) from %COMMITNOW%
+  - git clone --depth 1 -b master https://github.com/facebook/zstd.git
+  - if defined MINGW cd zstd/lib & set CC=gcc & mingw32-make -j2 libzstd.a & cd ../../
+  - qbs --version
+  - qbs setup-toolchains --detect
+  - qbs config defaultProfile %DEFAULT_PROFILE%
+  - qbs build --all-products config:release projects.Tiled.windowsInstaller:true projects.Tiled.enableZstd:%ENABLE_ZSTD%
+  - cd util\java
+  - mvn --version
+  - mvn clean install
+  - cd ..\..
+
+after_build:
+  - cd release
+  - cd installer*
+  - move tiled-*.msi %APPVEYOR_BUILD_FOLDER%
+  - cd ..
+  - cd archive*
+  - move tiled-*.7z %APPVEYOR_BUILD_FOLDER%
+  - cd ..\..
+  - if defined PUSH_TO_ITCH dist\win\push-to-itch.bat
+
+artifacts:
+  - name: Installer
+    path: 'tiled-*.msi'
+  - name: Archive
+    path: 'tiled-*.7z'
+
+deploy:
+  - provider: FTP
+    protocol: sftp
+    host: update.mapeditor.org
+    username: update
+    password:
+      secure: YPoSL+S82PCgS5PYbhtxQv0YD7uwZAX9LhjJBBbDGvk=
+    folder: update.mapeditor.org/snapshots-win
+    artifact: /.*\.(msi|7z)/
+    on:
+        branch: snapshot
+        push_release: true
+
+  - provider: Webhook
+    url: https://app.signpath.io/API/v1/670574d6-49bf-4a0c-824a-3ae977077079/Integrations/AppVeyor?ProjectKey=tiled&SigningPolicyKey=test-signing
+    authorization:
+        secure: 4E7IuM1Ftvdkx43gsqI3tUWb6tcvrfKB22sa6DsWaBzT+zv3DqceDCk0qc/JqTO+Er5UQNYwolmWBzMdys6fVA==
+    on:
+        appveyor_repo_tag: false
+        push_release: true
+
+  - provider: Webhook
+    url: https://app.signpath.io/API/v1/670574d6-49bf-4a0c-824a-3ae977077079/Integrations/AppVeyor?ProjectKey=tiled&SigningPolicyKey=release-signing
+    authorization:
+        secure: 4E7IuM1Ftvdkx43gsqI3tUWb6tcvrfKB22sa6DsWaBzT+zv3DqceDCk0qc/JqTO+Er5UQNYwolmWBzMdys6fVA==
+    on:
+        branch: snapshot
+        push_release: true
+
+  - provider: Webhook
+    url: https://app.signpath.io/API/v1/670574d6-49bf-4a0c-824a-3ae977077079/Integrations/AppVeyor?ProjectKey=tiled&SigningPolicyKey=release-signing
+    authorization:
+        secure: 4E7IuM1Ftvdkx43gsqI3tUWb6tcvrfKB22sa6DsWaBzT+zv3DqceDCk0qc/JqTO+Er5UQNYwolmWBzMdys6fVA==
+    on:
+        appveyor_repo_tag: true
+        push_release: true
+
+notifications:
+  - provider: Webhook
+    url: https://webhooks.gitter.im/e/6e48d432e0e0dd1b2d22
