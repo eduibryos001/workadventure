@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.6.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" infinite="0" nextlayerid="23" nextobjectid="1">
+<map version="1.5" tiledversion="1.6.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" infinite="0" nextlayerid="28" nextobjectid="1">
  <editorsettings>
-  <export target="FH..json" format="json"/>
+  <export target="../../../Desktop/FHPraktikum/4. Workadventure/FH.json" format="json"/>
  </editorsettings>
  <tileset firstgid="1" name="tiles" tilewidth="32" tileheight="32" tilecount="1152" columns="24">
   <image source="../../../Desktop/FHPraktikum/4. Workadventure/Tilesets/tiles.png" width="768" height="1536"/>
@@ -268,7 +268,7 @@
 41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42,41,42
 </data>
  </layer>
- <layer id="2" name="FHimg" width="100" height="100" visible="0">
+ <layer id="2" name="FHimg" width="100" height="100">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -2140,4 +2140,5 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
+ <objectgroup id="23" name="floorLayer"/>
 </map>
