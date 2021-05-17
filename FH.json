@@ -4,7 +4,7 @@
      "export":
         {
          "format":"json",
-         "target":"..\/..\/..\/Desktop\/FHPraktikum\/4. Workadventure\/FH.json"
+         "target":"..\/..\/..\/Documents\/GitHub\/workadventure\/FH.json"
         }
     },
  "height":100,
@@ -289,7 +289,7 @@
         {
          "columns":24,
          "firstgid":1,
-         "image":"..\/..\/..\/Desktop\/FHPraktikum\/4. Workadventure\/Tilesets\/tiles.png",
+         "image":"Tilesets\/tiles.png",
          "imageheight":1536,
          "imagewidth":768,
          "margin":0,
@@ -332,7 +332,7 @@
         {
          "columns":32,
          "firstgid":1153,
-         "image":"..\/..\/..\/Desktop\/FHPraktikum\/4. Workadventure\/Tilesets\/tileset.png",
+         "image":"Tilesets\/tileset.png",
          "imageheight":2016,
          "imagewidth":1024,
          "margin":0,
@@ -373,7 +373,7 @@
                             }, 
                             {
                              "id":8,
-                             "template":"..\/..\/untitled.tx",
+                             "template":"..\/..\/..\/Documents\/untitled.tx",
                              "x":-0.0637959,
                              "y":9.9362
                             }, 
@@ -418,7 +418,7 @@
         {
          "columns":19,
          "firstgid":3169,
-         "image":"..\/..\/..\/Desktop\/FHPraktikum\/4. Workadventure\/Screenshot_2021-04-23 Google Earth.png",
+         "image":"Screenshot_2021-04-23 Google Earth.png",
          "imageheight":647,
          "imagewidth":631,
          "margin":0,
@@ -431,7 +431,7 @@
         {
          "columns":16,
          "firstgid":3549,
-         "image":"..\/..\/..\/Desktop\/FHPraktikum\/4. Workadventure\/Tilesets\/workadventure-map-starter-kit-master\/workadventure-map-starter-kit-master\/tilesets_deviant_milkian_1.png",
+         "image":"Tilesets\/workadventure-map-starter-kit-master\/workadventure-map-starter-kit-master\/tilesets_deviant_milkian_1.png",
          "imageheight":512,
          "imagewidth":512,
          "margin":0,
@@ -444,7 +444,7 @@
         {
          "columns":8,
          "firstgid":3805,
-         "image":"..\/..\/..\/Desktop\/FHPraktikum\/4. Workadventure\/Tilesets\/workadventure-map-starter-kit-master\/workadventure-map-starter-kit-master\/floortileset.png",
+         "image":"Tilesets\/workadventure-map-starter-kit-master\/workadventure-map-starter-kit-master\/floortileset.png",
          "imageheight":256,
          "imagewidth":256,
          "margin":0,
@@ -475,7 +475,7 @@
         {
          "columns":8,
          "firstgid":3869,
-         "image":"..\/..\/..\/Desktop\/FHPraktikum\/4. Workadventure\/Tilesets\/Pipoya RPG Tileset 32x32\/Pipoya RPG Tileset 32x32\/[Base]BaseChip_pipo.png",
+         "image":"Tilesets\/Pipoya RPG Tileset 32x32\/Pipoya RPG Tileset 32x32\/[Base]BaseChip_pipo.png",
          "imageheight":4256,
          "imagewidth":256,
          "margin":0,
@@ -512,7 +512,7 @@
         {
          "columns":30,
          "firstgid":4933,
-         "image":"..\/..\/..\/Desktop\/FHPraktikum\/4. Workadventure\/MEET+MATCH_2014_plan_2014_960x679.jpg",
+         "image":"MEET+MATCH_2014_plan_2014_960x679.jpg",
          "imageheight":679,
          "imagewidth":960,
          "margin":0,
@@ -525,7 +525,7 @@
         {
          "columns":18,
          "firstgid":5563,
-         "image":"Tilesets\/bytewerk\/cija_32x32_expansion for Pipoya_CC0.png",
+         "image":"..\/..\/..\/Documents\/GitHub\/workadventure\/Tilesets\/bytewerk\/cija_32x32_expansion for Pipoya_CC0.png",
          "imageheight":4256,
          "imagewidth":576,
          "margin":0,
@@ -538,7 +538,7 @@
         {
          "columns":9,
          "firstgid":7957,
-         "image":"Tilesets\/mapUtilities.png",
+         "image":"..\/..\/..\/Documents\/GitHub\/workadventure\/Tilesets\/mapUtilities.png",
          "imageheight":32,
          "imagewidth":288,
          "margin":0,
