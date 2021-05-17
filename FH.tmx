@@ -40,6 +40,11 @@
  </tileset>
  <tileset firstgid="3805" name="floortileset" tilewidth="32" tileheight="32" tilecount="64" columns="8">
   <image source="../../../Desktop/FHPraktikum/4. Workadventure/Tilesets/workadventure-map-starter-kit-master/workadventure-map-starter-kit-master/floortileset.png" width="256" height="256"/>
+  <tile id="37">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
   <wangsets>
    <wangset name="Unnamed Set" type="mixed" tile="37">
     <wangcolor name="" color="#ff0000" tile="37" probability="1"/>
