@@ -4,7 +4,7 @@
      "export":
         {
          "format":"json",
-         "target":"..\/..\/..\/Documents\/GitHub\/workadventure\/FH.json"
+         "target":"FH.json"
         }
     },
  "height":100,
@@ -408,7 +408,7 @@
                             }, 
                             {
                              "id":8,
-                             "template":"..\/..\/..\/Documents\/untitled.tx",
+                             "template":"..\/..\/untitled.tx",
                              "x":-0.0637959,
                              "y":9.9362
                             }, 
@@ -453,7 +453,7 @@
         {
          "columns":19,
          "firstgid":3169,
-         "image":"Screenshot_2021-04-23 Google Earth.png",
+         "image":"Tilesets\/Screenshot_2021-04-23 Google Earth.png",
          "imageheight":647,
          "imagewidth":631,
          "margin":0,
@@ -547,7 +547,7 @@
         {
          "columns":30,
          "firstgid":4933,
-         "image":"MEET+MATCH_2014_plan_2014_960x679.jpg",
+         "image":"Tilesets\/MEET+MATCH_2014_plan_2014_960x679.jpg",
          "imageheight":679,
          "imagewidth":960,
          "margin":0,
@@ -560,7 +560,7 @@
         {
          "columns":18,
          "firstgid":5563,
-         "image":"..\/..\/..\/Documents\/GitHub\/workadventure\/Tilesets\/bytewerk\/cija_32x32_expansion for Pipoya_CC0.png",
+         "image":"Tilesets\/bytewerk\/cija_32x32_expansion for Pipoya_CC0.png",
          "imageheight":4256,
          "imagewidth":576,
          "margin":0,
@@ -573,7 +573,7 @@
         {
          "columns":9,
          "firstgid":7957,
-         "image":"..\/..\/..\/Documents\/GitHub\/workadventure\/Tilesets\/mapUtilities.png",
+         "image":"Tilesets\/mapUtilities.png",
          "imageheight":32,
          "imagewidth":288,
          "margin":0,
