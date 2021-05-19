@@ -222,7 +222,7 @@
         {
          "columns":2,
          "firstgid":1,
-         "image":"..\/rc3.world\/assets\/worldExit.png",
+         "image":"assets\/worldExit.png",
          "imageheight":64,
          "imagewidth":64,
          "margin":0,
