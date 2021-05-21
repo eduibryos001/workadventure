@@ -122,7 +122,7 @@
                 {
                  "name":"playAudio",
                  "type":"string",
-                 "value":"cali.mp3"
+                 "value":"sound\/cali.mp3"
                 }],
          "type":"tilelayer",
          "visible":true,
